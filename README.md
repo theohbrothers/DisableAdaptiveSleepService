@@ -6,17 +6,17 @@ Since Windows build 10586 onwards, an AMD graphics driver update installed eithe
 
 The solution would be to disable AdaptiveSleepService. However, because Windows Updates also includes AMD graphics drivers, the problem soon recurs. 
 
-The full-fledged solution would be to automate the disabling of AdaptiveSleepService.
+<b>The full-fledged solution would be to automate the disabling of AdaptiveSleepService.</b>
 
 # How to
 We are going to create a Task in Task Scheduler, that runs the .bat script on 1) WorkStation Lock, 2) When a system enters Sleep (EventID 42 of Kernel-Power Log). Because a workstation lock occurs before a system enters Sleep, it will trigger the Task.
-- Download the <code>DisableAdaptiveSleepService.bat</code> to <code>C:\Scripts</code>
-- Download the <code>DisableAdaptiveSleepService.xml</code> Task Export to <code>C:\Scripts</code>.
-- Import the DisableAdaptiveSleepService.xml Task Export file as a Task in Task Scheduler. Click OK when the Create Task Wizard Pops up.
-  - (Open Task Scheduler, create a new Folder in Task Scheduler Library called <i>scripts</i>, then in that folder click on Import Task, browse to C:\scripts\DisableAdaptiveSleepService.xml to import the Task. Click OK when the Create Task Wizard pops up.)
+- Download the <code>DisableAdaptiveSleepService.bat</code> to <code>C:\Scripts\DisableAdaptiveSleepService.bat</code>
+- Download the <code>DisableAdaptiveSleepService.xml</code> Task Export to <code>C:\Scripts\DisableAdaptiveSleepService.xml</code>.
+- Import the <code>DisableAdaptiveSleepService.xml</code> Task Export file as a Task in <i>Task Scheduler</i>. Click <i>OK</i> when the Create Task Wizard Pops up.
+  - Full instructions: Open <i>Task Scheduler</i>, create a new folder in Task Scheduler Library called <i>scripts</i>, then in that folder click on <i>Import Task</i>, browse to <code>C:\scripts\DisableAdaptiveSleepService.xml</code> to import the Task. Click <i>OK</i> when the Create Task Wizard pops up.
 
 # Test the script (it should work!)
-Open Service, and change AdaptiveSleepService startup type to Automatic, and Start the service. Now Sleep your system. Now wake your system, and see now AdaptiveSleepService <code>Startup Type</code> should be changed to <code>'Manual'</code> and <code>Status</code> should be <code>'Stopped'</code>
+Open Service, and change AdaptiveSleepService startup type to Automatic, and Start the service. Now Sleep your system. Now wake your system, and see now <code>AdaptiveSleepService</code> <i>Startup Type</i> should be changed to <code>Manual</code> and <i>Status</i> should be <code>Stopped</code>. :)
 
 # Note
 - Task export has hardcoded the path of the script to be to be run in C:\scripts\DisableAdaptiveSleepService.bat. Change this to your liking.
