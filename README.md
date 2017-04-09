@@ -1,4 +1,4 @@
-# DisableAdaptiveSleepService
+## DisableAdaptiveSleepService
 Keeps AdaptiveSleepService in Manual Startup state and Stopped, across Windows Updates or driver updates.
 
 # Background
@@ -25,3 +25,5 @@ Open <i>Services</i>, and change <i>AdaptiveSleepService</i> Startup Type to <co
 # Platforms
 - WinNT (Windows Vista and Up)
 
+# More information
+- You can read more about AMD's AdaptiveSleepService's Hibernate-from-Sleep issues <a href="https://theohbrothers.com/solve-windows-10-waking-for-brief-moment-and-going-back-to-sleephibernation/" target="_blank">here.</a>
