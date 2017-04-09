@@ -2,7 +2,7 @@
 Keeps AdaptiveSleepService in Manual Startup state and Stopped, across Windows Updates or driver updates.
 
 # Background
-Problem: Since Windows 10 build 10586 onwards, an AMD graphics driver update installed either manually (AMD's website) or through Windows Updates includes a service called AdaptiveSleepService. This Service however causes PCs in Sleep states to engage in Hibernate-from-Sleep, often appearing like a brief waking from Sleep and going back to Sleep. 
+Problem: Since Windows 10 build 10586, an AMD graphics driver update installed either manually (AMD's website) or through Windows Updates includes a service called AdaptiveSleepService. This Service however causes PCs in Sleep states to engage in Hibernate-from-Sleep, often appearing like a brief waking from Sleep and going back to Sleep. 
 
 A solution would be to disable AdaptiveSleepService. However, because Windows Updates also includes AMD graphics drivers, the problem soon recurs. 
 
@@ -10,8 +10,8 @@ A solution would be to disable AdaptiveSleepService. However, because Windows Up
 
 # How to
 We are going to create a Task in Task Scheduler, that runs the .bat script on 1) WorkStation Lock, 2) When a system enters Sleep (EventID 42 of Kernel-Power Log). Because a workstation lock occurs before a system enters Sleep, it will trigger the Task.
-- Download the <code>DisableAdaptiveSleepService.bat</code> to <code>C:\Scripts\DisableAdaptiveSleepService.bat</code>
-- Download the <code>DisableAdaptiveSleepService.xml</code> Task Export to <code>C:\Scripts\DisableAdaptiveSleepService.xml</code>.
+- Download the <code>DisableAdaptiveSleepService.bat</code> to <code>C:\scripts\DisableAdaptiveSleepService.bat</code>
+- Download the <code>DisableAdaptiveSleepService.xml</code> Task Export to <code>C:\scripts\DisableAdaptiveSleepService.xml</code>.
 - Import the <code>DisableAdaptiveSleepService.xml</code> Task Export file as a Task in <i>Task Scheduler</i>. Click <i>OK</i> when the Create Task Wizard Pops up.
   - Full instructions: Open <i>Task Scheduler</i>, create a new folder in Task Scheduler Library called <i>scripts</i>, then in that folder click on <i>Import Task</i>, browse to <code>C:\scripts\DisableAdaptiveSleepService.xml</code> to import the Task. Click <i>OK</i> when the Create Task Wizard pops up.
 
